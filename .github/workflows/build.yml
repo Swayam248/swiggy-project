@@ -74,3 +74,8 @@ jobs:
 
       - name: Deploy to container
         run: docker run -d --name swiggy-clone -p 3000:3000 372687848939.dkr.ecr.us-east-1.amazonaws.com/swiggy-ecr:latest
+        
+      - name: Test container internally
+        run: |
+          docker exec swiggy-clone curl http://localhost:3000
+
